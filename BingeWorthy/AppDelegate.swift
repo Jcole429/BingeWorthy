@@ -13,9 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let navigationController : UINavigationController = UINavigationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let frame = UIScreen.main.bounds
+        self.window = UIWindow(frame: frame)
+        self.window!.makeKeyAndVisible()
+        self.window!.rootViewController = self.navigationController
+        self.window!.backgroundColor = UIColor.white
+        
+        let homeController = HomeController()
+        homeController.title = "BingeIt"
+        self.navigationController.pushViewController(homeController, animated: false)
+        
         return true
     }
 
